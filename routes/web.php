@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\car;
+use http\Client\Curl\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,8 +30,18 @@ Route::get('/about/test', function () {
     return 'this is test';
 });
 Route::get('/student', function () {
-    return \App\Models\car::first();
+    return car::first();
 });
 Route::get('/students', function () {
-    return \App\Models\car::all();
+    return car::all();
 });
+Route::get('/student/{student}', function (car $car) {
+    return $car;
+});
+Route::get('/myuser/{user}',function (User $user){
+   return $user;
+});
+Route::get('/aboutz',function (){
+    return car::whereAge('Nisay')->first_name;
+});
+
